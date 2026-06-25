@@ -31,139 +31,152 @@ code{background:#e8f5ec;padding:2px 6px;border-radius:4px;font-size:12px;color:#
 .card.purple{border-left-color:#7c3aed}
 </style></head><body>';
 
-echo '<h1>🌱 Eclosion+ — Plateforme de Formation en Ligne</h1>';
-echo '<p>LMS complet avec IA, paiement Wave, liens partagés, et administration.</p>';
+echo "<h1>🌱 Eclosion+ — Plateforme de Formation en Ligne</h1>";
+echo "<p>LMS complet avec IA, paiement Wave, liens partagés, et administration.</p>";
 
 // === INFOS PROJET ===
 echo '<div class="section"><h2>📋 Informations Projet</h2>';
-echo '<table>';
+echo "<table>";
 echo '<tr><td style="width:200px"><strong>Framework</strong></td><td>Laravel 10.50.2</td></tr>';
-echo '<tr><td><strong>PHP</strong></td><td>8.2.12</td></tr>';
-echo '<tr><td><strong>Base de données</strong></td><td>MariaDB 10.4.32 (MySQL)</td></tr>';
-echo '<tr><td><strong>Frontend</strong></td><td>Tailwind CSS (CDN) + Material Icons</td></tr>';
-echo '<tr><td><strong>IA</strong></td><td>DeepSeek API (deepseek-chat)</td></tr>';
-echo '<tr><td><strong>Paiement</strong></td><td>Wave Mobile Money</td></tr>';
-echo '<tr><td><strong>Devise</strong></td><td>Franc CFA (FCFA)</td></tr>';
-echo '<tr><td><strong>Démarrage</strong></td><td><code>php artisan serve --port=8080</code></td></tr>';
-echo '</table></div>';
+echo "<tr><td><strong>PHP</strong></td><td>8.2.12</td></tr>";
+echo "<tr><td><strong>Base de données</strong></td><td>MariaDB 10.4.32 (MySQL)</td></tr>";
+echo "<tr><td><strong>Frontend</strong></td><td>Tailwind CSS (CDN) + Material Icons</td></tr>";
+echo "<tr><td><strong>IA</strong></td><td>DeepSeek API (deepseek-chat)</td></tr>";
+echo "<tr><td><strong>Paiement</strong></td><td>Wave Mobile Money</td></tr>";
+echo "<tr><td><strong>Devise</strong></td><td>Franc CFA (FCFA)</td></tr>";
+echo "<tr><td><strong>Démarrage</strong></td><td><code>php artisan serve --port=8080</code></td></tr>";
+echo "</table></div>";
 
 // === BASE DE DONNÉES ===
 echo '<div class="section"><h2>🗄️ Base de données</h2>';
 $tables = [
-    'users' => 'Comptes (student, instructor, admin)',
-    'courses' => 'Formations (titre, prix, statut, catégorie)',
-    'categories' => 'Catégories de formations',
-    'levels' => 'Niveaux (Débutant, Intermédiaire, Avancé)',
-    'lessons' => 'Leçons (vidéo, audio, PDF) avec illustrations',
-    'enrollments' => 'Inscriptions (en_attente, approuvé, refusé) + Wave',
-    'progress' => 'Progression par leçon (completed, watched_seconds)',
-    'comments' => 'Questions/Réponses avec réponse IA automatique',
-    'reviews' => 'Avis/Notations (1-5 étoiles)',
-    'share_links' => 'Liens d\'accès direct (guest access)',
-    'ai_conversations' => 'Conversations avec l\'IA',
-    'ai_messages' => 'Messages dans les conversations IA',
+    "users" => "Comptes (student, instructor, admin)",
+    "courses" => "Formations (titre, prix, statut, catégorie)",
+    "categories" => "Catégories de formations",
+    "levels" => "Niveaux (Débutant, Intermédiaire, Avancé)",
+    "lessons" => "Leçons (vidéo, audio, PDF) avec illustrations",
+    "enrollments" => "Inscriptions (en_attente, approuvé, refusé) + Wave",
+    "progress" => "Progression par leçon (completed, watched_seconds)",
+    "comments" => "Questions/Réponses avec réponse IA automatique",
+    "reviews" => "Avis/Notations (1-5 étoiles)",
+    "share_links" => 'Liens d\'accès direct (guest access)',
+    "ai_conversations" => 'Conversations avec l\'IA',
+    "ai_messages" => "Messages dans les conversations IA",
 ];
-echo '<table><tr><th>Table</th><th>Description</th></tr>';
+echo "<table><tr><th>Table</th><th>Description</th></tr>";
 foreach ($tables as $table => $desc) {
     echo "<tr><td><code>{$table}</code></td><td>{$desc}</td></tr>";
 }
-echo '</table></div>';
+echo "</table></div>";
 
 // === ROUTES ===
 echo '<div class="section"><h2>🔗 Routes</h2>';
 
-echo '<h3>🌐 Publiques</h3>';
+echo "<h3>🌐 Publiques</h3>";
 $publicRoutes = [
-    ['GET', '/', 'Accueil (landing page)'],
-    ['GET', '/formations', 'Catalogue avec recherche + catégories'],
-    ['GET', '/formations/{course}', 'Détail formation + avis'],
-    ['GET', '/acces/{token}', 'Accès invité via lien partagé'],
-    ['GET', '/login', 'Connexion'],
-    ['POST', '/login', 'Authentification'],
-    ['GET', '/register', 'Inscription'],
-    ['POST', '/register', 'Création compte'],
-    ['POST', '/logout', 'Déconnexion'],
+    ["GET", "/", "Accueil (landing page)"],
+    ["GET", "/formations", "Catalogue avec recherche + catégories"],
+    ["GET", "/formations/{course}", "Détail formation + avis"],
+    ["GET", "/acces/{token}", "Accès invité via lien partagé"],
+    ["GET", "/login", "Connexion"],
+    ["POST", "/login", "Authentification"],
+    ["GET", "/register", "Inscription"],
+    ["POST", "/register", "Création compte"],
+    ["POST", "/logout", "Déconnexion"],
 ];
-echo '<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>';
-foreach ($publicRoutes as $r) echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
-echo '</table>';
+echo "<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>";
+foreach ($publicRoutes as $r) {
+    echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
+}
+echo "</table>";
 
-echo '<h3>👤 Authentifiées</h3>';
+echo "<h3>👤 Authentifiées</h3>";
 $authRoutes = [
-    ['GET', '/mes-cours', 'Mes inscriptions'],
-    ['GET', '/lecons/{lesson}', 'Page leçon + lecteur'],
-    ['GET', '/support', 'Historique conversations IA'],
-    ['GET', '/support/{id}', 'Conversation IA'],
-    ['POST', '/helpdesk/chat', 'Envoyer message IA'],
-    ['POST', '/enrollments/{id}/request', 'Demander accès + Wave'],
-    ['POST', '/progress/{id}/toggle', 'Marquer leçon terminée'],
-    ['POST', '/lecons/{id}/comments', 'Poster question (IA répond)'],
-    ['POST', '/formations/{id}/review', 'Donner avis/étoiles'],
+    ["GET", "/mes-cours", "Mes inscriptions"],
+    ["GET", "/lecons/{lesson}", "Page leçon + lecteur"],
+    ["GET", "/support", "Historique conversations IA"],
+    ["GET", "/support/{id}", "Conversation IA"],
+    ["POST", "/helpdesk/chat", "Envoyer message IA"],
+    ["POST", "/enrollments/{id}/request", "Demander accès + Wave"],
+    ["POST", "/progress/{id}/toggle", "Marquer leçon terminée"],
+    ["POST", "/lecons/{id}/comments", "Poster question (IA répond)"],
+    ["POST", "/formations/{id}/review", "Donner avis/étoiles"],
 ];
-echo '<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>';
-foreach ($authRoutes as $r) echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
-echo '</table>';
+echo "<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>";
+foreach ($authRoutes as $r) {
+    echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
+}
+echo "</table>";
 
-echo '<h3>🛡️ Admin</h3>';
+echo "<h3>🛡️ Admin</h3>";
 $adminRoutes = [
-    ['GET', '/admin', 'Dashboard avec stats'],
-    ['GET/POST', '/admin/courses', 'CRUD Formations'],
-    ['POST', '/admin/courses/{id}/share', 'Générer lien partagé'],
-    ['GET', '/admin/enrollments', 'Gestion demandes'],
-    ['PATCH', '/admin/enrollments/{id}/approve', 'Approuver'],
-    ['PATCH', '/admin/enrollments/{id}/reject', 'Refuser'],
-    ['GET', '/admin/users', 'Gestion utilisateurs'],
-    ['PATCH', '/admin/users/{id}/role', 'Changer rôle'],
+    ["GET", "/admin", "Dashboard avec stats"],
+    ["GET/POST", "/admin/courses", "CRUD Formations"],
+    ["POST", "/admin/courses/{id}/share", "Générer lien partagé"],
+    ["GET", "/admin/enrollments", "Gestion demandes"],
+    ["PATCH", "/admin/enrollments/{id}/approve", "Approuver"],
+    ["PATCH", "/admin/enrollments/{id}/reject", "Refuser"],
+    ["GET", "/admin/users", "Gestion utilisateurs"],
+    ["PATCH", "/admin/users/{id}/role", "Changer rôle"],
 ];
-echo '<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>';
-foreach ($adminRoutes as $r) echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
-echo '</table></div>';
+echo "<table><tr><th>Méthode</th><th>URL</th><th>Action</th></tr>";
+foreach ($adminRoutes as $r) {
+    echo "<tr><td>{$r[0]}</td><td><code>{$r[1]}</code></td><td>{$r[2]}</td></tr>";
+}
+echo "</table></div>";
 
 // === FONCTIONNALITÉS ===
 echo '<div class="section"><h2>⚡ Fonctionnalités</h2>';
 echo '<div class="grid">';
 
 $features = [
-    ['🎓 Formations', '6 formations avec 14 niveaux et 39 leçons', 'green'],
-    ['🎬 Médias', 'Vidéo MP4, Audio MP3, Documents PDF', 'green'],
-    ['⭐ Avis', 'Notation 1-5 étoiles avec commentaires', 'green'],
-    ['💬 Commentaires IA', 'Questions → réponse auto par DeepSeek', 'blue'],
-    ['🤖 Chat IA', 'Assistant contextuel par leçon', 'blue'],
-    ['💳 Paiement Wave', 'Mobile Money avec référence transaction', 'green'],
-    ['💰 FCFA', 'Devise Franc CFA', 'green'],
-    ['🔗 Liens partagés', 'Accès invité sans compte', 'purple'],
-    ['🔍 Recherche', 'Recherche dans le catalogue', 'green'],
-    ['🏷️ Catégories', '5 catégories de formations', 'green'],
-    ['📊 Dashboard', 'Stats, revenus, top formations', 'blue'],
-    ['👥 Utilisateurs', 'Gestion rôles (student/instructor/admin)', 'purple'],
-    ['🖼️ Illustrations', 'Images par leçon + image/audio par niveau', 'green'],
-    ['📱 Responsive', 'Mobile-first, adapté smartphone', 'blue'],
+    ["🎓 Formations", "6 formations avec 14 niveaux et 39 leçons", "green"],
+    ["🎬 Médias", "Vidéo MP4, Audio MP3, Documents PDF", "green"],
+    ["⭐ Avis", "Notation 1-5 étoiles avec commentaires", "green"],
+    ["💬 Commentaires IA", "Questions → réponse auto par DeepSeek", "blue"],
+    ["🤖 Chat IA", "Assistant contextuel par leçon", "blue"],
+    ["💳 Paiement Wave", "Mobile Money avec référence transaction", "green"],
+    ["💰 FCFA", "Devise Franc CFA", "green"],
+    ["🔗 Liens partagés", "Accès invité sans compte", "purple"],
+    ["🔍 Recherche", "Recherche dans le catalogue", "green"],
+    ["🏷️ Catégories", "5 catégories de formations", "green"],
+    ["📊 Dashboard", "Stats, revenus, top formations", "blue"],
+    ["👥 Utilisateurs", "Gestion rôles (student/instructor/admin)", "purple"],
+    ["🖼️ Illustrations", "Images par leçon + image/audio par niveau", "green"],
+    ["📱 Responsive", "Mobile-first, adapté smartphone", "blue"],
 ];
 foreach ($features as $f) {
-    echo "<div class='card " . ($f[2] === 'blue' ? 'blue' : ($f[2] === 'purple' ? 'purple' : '')) . "'><strong>{$f[0]}</strong><br><small>{$f[1]}</small></div>";
+    echo "<div class='card " .
+        ($f[2] === "blue" ? "blue" : ($f[2] === "purple" ? "purple" : "")) .
+        "'><strong>{$f[0]}</strong><br><small>{$f[1]}</small></div>";
 }
-echo '</div></div>';
+echo "</div></div>";
 
 // === COMPTES ===
 echo '<div class="section"><h2>🔑 Comptes</h2>';
-echo '<table><tr><th>Rôle</th><th>Email</th><th>Mot de passe</th></tr>';
-echo '<tr><td><span class="badge badge-red">Admin</span></td><td>afanoudieudonneekoffi@gmail.com</td><td>Fafa7258@</td></tr>';
+echo "<table><tr><th>Rôle</th><th>Email</th><th>Mot de passe</th></tr>";
+echo '<tr><td><span class="badge badge-red">Admin</span></td><td>Créé lors de l\'installation</td><td>Voir configuration</td></tr>';
 echo '<tr><td><span class="badge badge-blue">Formations</span></td><td colspan="2">Alibaba • Marketing Digital • Dropshipping • Facebook Ads • E-commerce • TikTok Shop</td></tr>';
-echo '</table></div>';
+echo "</table></div>";
 
 // === COMMANDES ===
 echo '<div class="section"><h2>🖥️ Commandes utiles</h2>';
-echo '<table>';
+echo "<table>";
 $commands = [
-    ['Démarrer le serveur', '<code>php artisan serve --port=8080</code>'],
-    ['Démarrer MySQL', '<code>C:\\xampp\\mysql\\bin\\mysqld --defaults-file=C:\\xampp\\mysql\\bin\\my.ini</code>'],
-    ['Voir les routes', '<code>php artisan route:list --except-vendor</code>'],
-    ['Accéder au site', '<code>http://127.0.0.1:8080</code>'],
-    ['Accéder à l\'admin', '<code>http://127.0.0.1:8080/admin</code>'],
-    ['Tinker (test)', '<code>php artisan tinker</code>'],
+    ["Démarrer le serveur", "<code>php artisan serve --port=8080</code>"],
+    [
+        "Démarrer MySQL",
+        '<code>C:\\xampp\\mysql\\bin\\mysqld --defaults-file=C:\\xampp\\mysql\\bin\\my.ini</code>',
+    ],
+    ["Voir les routes", "<code>php artisan route:list --except-vendor</code>"],
+    ["Accéder au site", "<code>http://127.0.0.1:8080</code>"],
+    ['Accéder à l\'admin', "<code>http://127.0.0.1:8080/admin</code>"],
+    ["Tinker (test)", "<code>php artisan tinker</code>"],
 ];
-foreach ($commands as $c) echo "<tr><td style='width:200px'>{$c[0]}</td><td>{$c[1]}</td></tr>";
-echo '</table></div>';
+foreach ($commands as $c) {
+    echo "<tr><td style='width:200px'>{$c[0]}</td><td>{$c[1]}</td></tr>";
+}
+echo "</table></div>";
 
 // === STRUCTURE ===
 echo '<div class="section"><h2>📁 Structure du projet</h2>';
@@ -204,5 +217,7 @@ eclosion-plus/
 └── .env (config BD + DeepSeek API key)
 </pre></div>';
 
-echo '<p style="text-align:center;margin-top:30px;color:#999">Eclosion+ LMS — Documentation générée le ' . date('d/m/Y') . '</p>';
-echo '</body></html>';
+echo '<p style="text-align:center;margin-top:30px;color:#999">Eclosion+ LMS — Documentation générée le ' .
+    date("d/m/Y") .
+    "</p>";
+echo "</body></html>";

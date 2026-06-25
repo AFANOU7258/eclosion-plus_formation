@@ -19,7 +19,11 @@ http://127.0.0.1:8080
 
 ---
 
+## 🔑 Comptes
 
+| Rôle | Email | Accès |
+|------|-------|-------|
+| **Admin** | Créé lors de l'installation | Voir .env |
 
 ---
 
