@@ -19,11 +19,7 @@ http://127.0.0.1:8080
 
 ---
 
-## 🔑 Comptes
 
-| Rôle | Email | Mot de passe |
-|------|-------|-------------|
-| **Admin** | afanoudieudonneekoffi@gmail.com | Fafa7258@ |
 
 ---
 
